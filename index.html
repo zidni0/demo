@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHTHOS AI - System Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 1. HERO SECTION -->
+    <header>
+        <div class="container">
+            <h1 class="animate-fade-in">IHTHOS AI</h1>
+            <p class="tagline animate-fade-in" style="animation-delay: 0.3s;">The Architecture of Next-Generation Intelligence.</p>
+        </div>
+    </header>
+
+    <!-- 2. SYSTEM STATUS INDICATOR -->
+    <section id="status-board">
+        <div class="container">
+            <div class="status-indicator">
+                <div class="status-item" data-service="API Gateway">
+                    <span class="status-dot"></span>
+                    <strong>API Gateway</strong><br><small>Active</small>
+                </div>
+                <div class="status-item" data-service="Local Memory">
+                    <span class="status-dot"></span>
+                    <strong>Local Memory</strong><br><small>Stable</small>
+                </div>
+                <div class="status-item" data-service="Model Router">
+                    <span class="status-dot"></span>
+                    <strong>Model Router</strong><br><small>Online</small>
+                </div>
+                <div class="status-item" data-service="System Core">
+                    <span class="status-dot"></span>
+                    <strong>System Core</strong><br><small>Nominal</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Workflow Visualization Section -->
+    <section id="workflow-section">
+        <div class="container">
+            <h2 class="section-title">System Workflow Visualization</h2>
+            <div class="workflow-container">
+                <!-- Start Node -->
+                <div class="workflow-node start-node glass-card" data-step="Input">
+                    <h3>User Input</h3>
+                    <p>The initial query or task request.</p>
+                </div>
+                <!-- Arrow 1 -->
+                <div class="workflow-arrow" data-from="Input" data-to="Router"></div>
+                <!-- Router Node -->
+                <div class="workflow-node router-node glass-card" data-step="Router">
+                    <h3>Router Core</h3>
+                    <p>Analyzes intent and determines the correct specialized module (Coder, Reasoner, etc.).</p>
+                </div>
+                <!-- Arrow 2 -->
+                <div class="workflow-arrow" data-from="Router" data-to="Tool"></div>
+                <!-- Tool Node -->
+                <div class="workflow-node tool-node glass-card" data-step="Tool Execution">
+                    <h3>Tool Execution</h3>
+                    <p>The appropriate module runs the necessary tool or API call (e.g., web_search, file_read).</p>
+                </div>
+                <!-- Arrow 3 -->
+                <div class="workflow-arrow" data-from="Tool" data-to="Memory"></div>
+                <!-- Memory/Output Node -->
+                <div class="workflow-node memory-node glass-card" data-step="Final Output">
+                    <h3>Final Output</h3>
+                    <p>The synthesized, conclusive answer presented to the user.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Core Capabilities Section -->
+    <section id="capabilities-section">
+        <div class="container">
+            <h2 class="section-title">Core Operational Capabilities</h2>
+            <div class="capability-grid">
+                <div class="glass-card capability-card" data-capability="reasoning">
+                    <h3 data-model="Reasoning">🧠 Reasoning</h3>
+                    <p>Systematic decomposition of complex queries into actionable steps. Planning, comparison, and deep logical deduction.</p>
+                </div>
+                <div class="glass-card capability-card" data-capability="coding">
+                    <h3 data-model="Coding">💻 Coding</h3>
+                    <p>Multi-language code generation, debugging, refactoring, and unit test creation across various stacks.</p>
+                </div>
+                <div class="glass-card capability-card" data-capability="automation">
+                    <h3 data-model="Automation">⚙️ Automation</h3>
+                    <p>Workflow orchestration, API interaction, scheduling, and execution of external tasks.</p>
+                </div>
+                <div class="glass-card capability-card" data-capability="memory">
+                    <h3 data-model="Memory">📚 Memory</h3>
+                    <p>Persistent contextual storage. Ability to reference past decisions, preferences, and learnings over time.</p>
+                </div>
+            </div >
+        </div >
+    </section>
+
+    <!-- 5. Active Models Showcase Section -->
+    <section id="models-showcase">
+        <div class="container">
+            <h2 class="section-title">Integrated Models</h2>
+            <div class="model-grid">
+                <div class="glass-card model-card">
+                    <h3 data-model="Gemma">Gemma</h3>
+                    <p>General Reasoning Engine. Excellent for complex problem decomposition and initial analysis.</p>
+                </div>
+                <div class="glass-card model-card">
+                    <h3 data-model="Llama">Llama</h3>
+                    <p>Advanced Contextual Model. Best for maintaining long-form conversations and detailed analysis.</p>
+                </div>
+                <div class="glass-card model-card">
+                    <h3 data-model="Qwen">Qwen</h3>
+                    <p>Multimodal & Cross-Lingual. Powerful for diverse data sources and international language support.</p>
+                </div>
+                <div class="glass-card model-card">
+                    <h3 data-model="DeepSeek">DeepSeek</h3>
+                    <p>Code & Logic Specialist. Optimized for high-accuracy code generation and structured data parsing.</p>
+                </div>
+            </div >
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            &copy; 2026 IHTHOS AI System. All rights reserved. | Built with advanced intelligence.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

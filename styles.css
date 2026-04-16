@@ -1,0 +1,229 @@
+/* 
+ * ====================================================================
+ * STYLES.CSS - Styling for IHTHOS AI Portal
+ * ====================================================================
+ 
+:root {
+    --color-primary: #00ffff;
+    --color-secondary: #ff00ff;
+    --color-dark-bg: #0a0c12; /* Slightly deeper dark background */
+    --color-card-bg: rgba(25, 32, 50, 0.7); /* Glass Card Base */
+    --color-glass-border: rgba(0, 255, 255, 0.15);
+    --color-text-light: #e0e6ff;
+    --color-text-muted: #a0a0c0;
+    --shadow-glow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+ 
+/* Global Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+ 
+/* Layout Containers */
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Typography */
+h2.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--color-primary);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+/* --- 1. Hero Section --- */
+header {
+    text-align: center;
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, rgba(10, 12, 18, 0) 0%, rgba(10, 12, 18, 0.95) 100%);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.05);
+}
+header h1 {
+    font-size: 5em;
+    margin: 0;
+    background: linear-gradient(45deg, #00ffff, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    animation: text-reveal 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    opacity: 0; 
+}
+header .tagline {
+    font-size: 2em;
+    color: var(--color-text-muted);
+    margin-top: 15px;
+    animation: text-reveal 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    opacity: 0;
+}
+
+/* --- 2. System Status Indicator --- */
+#status-board {
+    padding: 80px 0;
+    background-color: rgba(16, 20, 28, 0.9);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+}
+.status-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.status-item {
+    padding: 20px 35px;
+    border-radius: 12px;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-glass-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.status-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
+}
+.status-dot {
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    margin-right: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    animation: pulse-green 1.5s infinite ease-in-out;
+}
+.status-item.offline .status-dot {
+     background-color: #ff3333;
+     box-shadow: 0 0 8px rgba(255, 51, 51, 0.8);
+     animation: none;
+}
+
+/* --- 3. Workflow Visualization --- */
+#workflow-section {
+    padding: 60px 0;
+    background-color: rgba(10, 12, 18, 0.6);
+}
+.workflow-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    position: relative;
+    min-height: 300px;
+}
+
+/* Arrows */
+.workflow-arrow {
+    flex-grow: 1;
+    height: 6px;
+    background-color: rgba(0, 255, 255, 0.1);
+    position: relative;
+    margin-top: 50px; /* Aligns with node vertical center */
+}
+.workflow-arrow::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
+}
+
+/* --- 4. Model & Capability Sections --- */
+section {
+    padding: 80px 0;
+}
+.model-grid, .capability-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+.model-card, .capability-card {
+    flex-basis: calc(22% - 30px);
+    min-width: 250px;
+    text-align: center;
+    padding: 25px;
+    border-radius: 12px;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-glass-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+}
+.model-card:hover, .capability-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+}
+
+/* Overrides for specific sections */
+.model-card h3, .capability-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-size: 1.6em;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ====================================================================
+ * KEYFRAME ANIMATIONS (No Glowing Text)
+ * ========================================================================
+ */
+
+@keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 8px rgba(0, 255, 255, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.8); }
+}
+
+/* Text Reveal Animation for Hero */
+@keyframes text-reveal {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* General Fade In for Sections */
+.animate-fade-in {
+    opacity: 0; 
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .model-card, .capability-card {
+        flex-basis: calc(33.333% - 30px);
+    }
+}
+@media (max-width: 900px) {
+    .model-card, .capability-card {
+        flex-basis: calc(50% - 20px);
+    }
+}
+@media (max-width: 600px) {
+    .model-card, .capability-card {
+        flex-basis: 100%;
+    }
+}
