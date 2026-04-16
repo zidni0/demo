@@ -3,132 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IHTHOS AI - System Portal</title>
+    <title>Ihthos Command Center</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- 1. HERO SECTION -->
-    <header>
-        <div class="container">
-            <h1 class="animate-fade-in">IHTHOS AI</h1>
-            <p class="tagline animate-fade-in" style="animation-delay: 0.3s;">The Architecture of Next-Generation Intelligence.</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">IHTHOS</div>
+        <div class="nav-links">
+            <button class="nav-btn active" data-page="home">Home</button>
+            <button class="nav-btn" data-page="workflow">Workflow</button>
+            <button class="nav-btn" data-page="features">Features</button>
         </div>
-    </header>
+    </nav>
 
-    <!-- 2. SYSTEM STATUS INDICATOR -->
-    <section id="status-board">
-        <div class="container">
-            <div class="status-indicator">
-                <div class="status-item" data-service="API Gateway">
-                    <span class="status-dot"></span>
-                    <strong>API Gateway</strong><br><small>Active</small>
-                </div>
-                <div class="status-item" data-service="Local Memory">
-                    <span class="status-dot"></span>
-                    <strong>Local Memory</strong><br><small>Stable</small>
-                </div>
-                <div class="status-item" data-service="Model Router">
-                    <span class="status-dot"></span>
-                    <strong>Model Router</strong><br><small>Online</small>
-                </div>
-                <div class="status-item" data-service="System Core">
-                    <span class="status-dot"></span>
-                    <strong>System Core</strong><br><small>Nominal</small>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Your Local AI Command Center</h1>
+            <p class="hero-subtitle">Control, visualize, and orchestrate AI agents with a beautiful, interactive interface</p>
+            <button class="cta-button" data-scroll="workflow">Explore the Workflow</button>
+        </div>
+
+        <!-- Animated Node Diagram -->
+        <div class="node-diagram">
+            <svg viewBox="0 0 600 400" class="svg-container">
+                <!-- Connections (drawn first so they appear behind nodes) -->
+                <g class="connections">
+                    <line class="connection" x1="300" y1="150" x2="150" y2="250" />
+                    <line class="connection" x1="300" y1="150" x2="300" y2="250" />
+                    <line class="connection" x1="300" y1="150" x2="450" y2="250" />
+                    <line class="connection" x1="150" y1="250" x2="225" y2="330" />
+                    <line class="connection" x1="300" y1="250" x2="300" y2="330" />
+                    <line class="connection" x1="450" y1="250" x2="375" y2="330" />
+                </g>
+
+                <!-- Center Node - User/Controller -->
+                <g class="node center-node" data-id="center">
+                    <circle class="node-circle" cx="300" cy="150" r="40" />
+                    <text class="node-label" x="300" y="150">You</text>
+                    <circle class="node-ring" cx="300" cy="150" r="55" />
+                </g>
+
+                <!-- First Layer Nodes -->
+                <g class="node layer1-node" data-id="l1-left">
+                    <circle class="node-circle" cx="150" cy="250" r="35" />
+                    <text class="node-label" x="150" y="250">Query</text>
+                    <circle class="node-ring" cx="150" cy="250" r="48" />
+                </g>
+
+                <g class="node layer1-node" data-id="l1-center">
+                    <circle class="node-circle" cx="300" cy="250" r="35" />
+                    <text class="node-label" x="300" y="250">Process</text>
+                    <circle class="node-ring" cx="300" cy="250" r="48" />
+                </g>
+
+                <g class="node layer1-node" data-id="l1-right">
+                    <circle class="node-circle" cx="450" cy="250" r="35" />
+                    <text class="node-label" x="450" y="250">Action</text>
+                    <circle class="node-ring" cx="450" cy="250" r="48" />
+                </g>
+
+                <!-- Second Layer Nodes -->
+                <g class="node layer2-node" data-id="l2-left">
+                    <circle class="node-circle" cx="225" cy="330" r="30" />
+                    <text class="node-label" x="225" y="330">Code</text>
+                    <circle class="node-ring" cx="225" cy="330" r="40" />
+                </g>
+
+                <g class="node layer2-node" data-id="l2-center">
+                    <circle class="node-circle" cx="300" cy="330" r="30" />
+                    <text class="node-label" x="300" y="330">Data</text>
+                    <circle class="node-ring" cx="300" cy="330" r="40" />
+                </g>
+
+                <g class="node layer2-node" data-id="l2-right">
+                    <circle class="node-circle" cx="375" cy="330" r="30" />
+                    <text class="node-label" x="375" y="330">Tools</text>
+                    <circle class="node-ring" cx="375" cy="330" r="40" />
+                </g>
+            </svg>
+
+            <!-- Info Cards that appear on node hover -->
+            <div class="info-card" id="info-card">
+                <h3 class="info-title">Control Center</h3>
+                <p class="info-desc">You initiate the process by entering your query or command</p>
             </div>
         </div>
     </section>
 
-    <!-- 3. Workflow Visualization Section -->
-    <section id="workflow-section">
-        <div class="container">
-            <h2 class="section-title">System Workflow Visualization</h2>
-            <div class="workflow-container">
-                <!-- Start Node -->
-                <div class="workflow-node start-node glass-card" data-step="Input">
-                    <h3>User Input</h3>
-                    <p>The initial query or task request.</p>
-                </div>
-                <!-- Arrow 1 -->
-                <div class="workflow-arrow" data-from="Input" data-to="Router"></div>
-                <!-- Router Node -->
-                <div class="workflow-node router-node glass-card" data-step="Router">
-                    <h3>Router Core</h3>
-                    <p>Analyzes intent and determines the correct specialized module (Coder, Reasoner, etc.).</p>
-                </div>
-                <!-- Arrow 2 -->
-                <div class="workflow-arrow" data-from="Router" data-to="Tool"></div>
-                <!-- Tool Node -->
-                <div class="workflow-node tool-node glass-card" data-step="Tool Execution">
-                    <h3>Tool Execution</h3>
-                    <p>The appropriate module runs the necessary tool or API call (e.g., web_search, file_read).</p>
-                </div>
-                <!-- Arrow 3 -->
-                <div class="workflow-arrow" data-from="Tool" data-to="Memory"></div>
-                <!-- Memory/Output Node -->
-                <div class="workflow-node memory-node glass-card" data-step="Final Output">
-                    <h3>Final Output</h3>
-                    <p>The synthesized, conclusive answer presented to the user.</p>
-                </div>
+    <!-- Workflow Section -->
+    <section class="workflow-section" id="workflow">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">A seamless flow from input to action</p>
+
+        <div class="workflow-steps">
+            <div class="step-card" data-step="1">
+                <div class="step-number">01</div>
+                <h3>Input & Understanding</h3>
+                <p>Your natural language query is received and parsed. The system analyzes intent, extracts key concepts, and prepares an action plan.</p>
+            </div>
+
+            <div class="step-arrow">→</div>
+
+            <div class="step-card" data-step="2">
+                <div class="step-number">02</div>
+                <h3>Processing</h3>
+                <p>The AI models process your request. Code is generated, data is analyzed, and the best approach is determined.</p>
+            </div>
+
+            <div class="step-arrow">→</div>
+
+            <div class="step-card" data-step="3">
+                <div class="step-number">03</div>
+                <h3>Execution</h3>
+                <p>Actions are carried out—files are created, commands run, data is stored. Everything is visualized in real-time.</p>
+            </div>
+
+            <div class="step-arrow">→</div>
+
+            <div class="step-card" data-step="4">
+                <div class="step-number">04</div>
+                <h3>Reflection</h3>
+                <p>Results are reviewed, lessons are learned, and the system improves for next time.</p>
             </div>
         </div>
     </section>
 
-    <!-- 4. Core Capabilities Section -->
-    <section id="capabilities-section">
-        <div class="container">
-            <h2 class="section-title">Core Operational Capabilities</h2>
-            <div class="capability-grid">
-                <div class="glass-card capability-card" data-capability="reasoning">
-                    <h3 data-model="Reasoning">🧠 Reasoning</h3>
-                    <p>Systematic decomposition of complex queries into actionable steps. Planning, comparison, and deep logical deduction.</p>
-                </div>
-                <div class="glass-card capability-card" data-capability="coding">
-                    <h3 data-model="Coding">💻 Coding</h3>
-                    <p>Multi-language code generation, debugging, refactoring, and unit test creation across various stacks.</p>
-                </div>
-                <div class="glass-card capability-card" data-capability="automation">
-                    <h3 data-model="Automation">⚙️ Automation</h3>
-                    <p>Workflow orchestration, API interaction, scheduling, and execution of external tasks.</p>
-                </div>
-                <div class="glass-card capability-card" data-capability="memory">
-                    <h3 data-model="Memory">📚 Memory</h3>
-                    <p>Persistent contextual storage. Ability to reference past decisions, preferences, and learnings over time.</p>
-                </div>
-            </div >
-        </div >
-    </section>
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <h2 class="section-title">What Ihthos Can Do</h2>
+        <p class="section-subtitle">A comprehensive suite of AI-powered capabilities</p>
 
-    <!-- 5. Active Models Showcase Section -->
-    <section id="models-showcase">
-        <div class="container">
-            <h2 class="section-title">Integrated Models</h2>
-            <div class="model-grid">
-                <div class="glass-card model-card">
-                    <h3 data-model="Gemma">Gemma</h3>
-                    <p>General Reasoning Engine. Excellent for complex problem decomposition and initial analysis.</p>
-                </div>
-                <div class="glass-card model-card">
-                    <h3 data-model="Llama">Llama</h3>
-                    <p>Advanced Contextual Model. Best for maintaining long-form conversations and detailed analysis.</p>
-                </div>
-                <div class="glass-card model-card">
-                    <h3 data-model="Qwen">Qwen</h3>
-                    <p>Multimodal & Cross-Lingual. Powerful for diverse data sources and international language support.</p>
-                </div>
-                <div class="glass-card model-card">
-                    <h3 data-model="DeepSeek">DeepSeek</h3>
-                    <p>Code & Logic Specialist. Optimized for high-accuracy code generation and structured data parsing.</p>
-                </div>
-            </div >
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <h3>Code Generation</h3>
+                <p>Write, debug, and refactor code across multiple languages. From simple functions to complex architectures.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Data Analysis</h3>
+                <p>Process and analyze data, generate insights, create visualizations, and extract meaningful patterns.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🛠️</div>
+                <h3>Tool Integration</h3>
+                <p>Connect with external APIs, databases, and system tools. Extend capabilities as needed.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>Context Memory</h3>
+                <p>Remember past interactions, learn from your preferences, and build a personalized knowledge base.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Research</h3>
+                <p>Search the web, fetch documentation, and gather information to inform your projects.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Automation</h3>
+                <p>Run recurring tasks, schedule jobs, and automate your workflow with scheduled agents.</p>
+            </div>
         </div>
     </section>
 
-    <footer id="footer">
-        <div class="container">
-            &copy; 2026 IHTHOS AI System. All rights reserved. | Built with advanced intelligence.
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Experience Ihthos?</h2>
+            <p>Start your local AI command center and take control of your workflow today.</p>
+            <button class="cta-button">Get Started</button>
         </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Ihthos Command Center. Built for Kazi.</p>
     </footer>
 
     <script src="script.js"></script>
